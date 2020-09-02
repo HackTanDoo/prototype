@@ -8,7 +8,7 @@
 
 import UIKit
 
-class morningCeremonyViewController: UIViewController {
+class morningCeremonyViewController: UIPageViewController, UIPageViewControllerDelegate, UIPageViewControllerDataSource {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,15 +16,13 @@ class morningCeremonyViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
+        <#code#>
     }
-    */
+    
+    func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
+        <#code#>
+    }
 
 }
