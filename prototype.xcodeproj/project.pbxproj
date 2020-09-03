@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		38153BE824FED85000908A5D /* morningCeremonyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38153BE724FED85000908A5D /* morningCeremonyViewController.swift */; };
+		385022792500B19A00A379E8 /* morningCeremonyPrayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385022782500B19A00A379E8 /* morningCeremonyPrayerViewController.swift */; };
 		388FC42224FEC0AF00DFBFCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC42124FEC0AF00DFBFCE /* AppDelegate.swift */; };
 		388FC42424FEC0AF00DFBFCE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC42324FEC0AF00DFBFCE /* SceneDelegate.swift */; };
 		388FC42924FEC0AF00DFBFCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 388FC42724FEC0AF00DFBFCE /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 
 /* Begin PBXFileReference section */
 		38153BE724FED85000908A5D /* morningCeremonyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = morningCeremonyViewController.swift; sourceTree = "<group>"; };
+		385022782500B19A00A379E8 /* morningCeremonyPrayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = morningCeremonyPrayerViewController.swift; sourceTree = "<group>"; };
 		388FC41E24FEC0AF00DFBFCE /* prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		388FC42124FEC0AF00DFBFCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		388FC42324FEC0AF00DFBFCE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +57,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		385022772500B0EE00A379E8 /* Today */ = {
+			isa = PBXGroup;
+			children = (
+				388FC43B24FECD6900DFBFCE /* TodayViewController.swift */,
+				38153BE724FED85000908A5D /* morningCeremonyViewController.swift */,
+				385022782500B19A00A379E8 /* morningCeremonyPrayerViewController.swift */,
+				388FC44324FECE7800DFBFCE /* Today.swift */,
+			);
+			path = Today;
+			sourceTree = "<group>";
+		};
 		388FC41524FEC0AF00DFBFCE = {
 			isa = PBXGroup;
 			children = (
@@ -76,16 +89,15 @@
 			children = (
 				388FC42124FEC0AF00DFBFCE /* AppDelegate.swift */,
 				388FC42324FEC0AF00DFBFCE /* SceneDelegate.swift */,
-				388FC43B24FECD6900DFBFCE /* TodayViewController.swift */,
+				385022772500B0EE00A379E8 /* Today */,
 				388FC43D24FECD9200DFBFCE /* GoalsViewController.swift */,
 				388FC43F24FECDA200DFBFCE /* HistoryViewController.swift */,
 				388FC44124FECDAD00DFBFCE /* AdditionalViewController.swift */,
-				38153BE724FED85000908A5D /* morningCeremonyViewController.swift */,
-				388FC44324FECE7800DFBFCE /* Today.swift */,
 				388FC44524FECE8800DFBFCE /* Goals.swift */,
 				388FC44724FECE9500DFBFCE /* History.swift */,
 				388FC44924FECEA800DFBFCE /* Additional.swift */,
 				388FC42724FEC0AF00DFBFCE /* Main.storyboard */,
+				388FC42F24FEC0B000DFBFCE /* Info.plist */,
 				388FC42A24FEC0B000DFBFCE /* Assets.xcassets */,
 				38F816BA24FF2E79009BA342 /* supportingFiles */,
 			);
@@ -96,7 +108,6 @@
 			isa = PBXGroup;
 			children = (
 				388FC42C24FEC0B000DFBFCE /* LaunchScreen.storyboard */,
-				388FC42F24FEC0B000DFBFCE /* Info.plist */,
 				38F816B824FF2E5D009BA342 /* notes.strings */,
 			);
 			path = supportingFiles;
@@ -176,6 +187,7 @@
 			files = (
 				388FC44824FECE9500DFBFCE /* History.swift in Sources */,
 				388FC42224FEC0AF00DFBFCE /* AppDelegate.swift in Sources */,
+				385022792500B19A00A379E8 /* morningCeremonyPrayerViewController.swift in Sources */,
 				388FC43E24FECD9200DFBFCE /* GoalsViewController.swift in Sources */,
 				388FC42424FEC0AF00DFBFCE /* SceneDelegate.swift in Sources */,
 				388FC44A24FECEA800DFBFCE /* Additional.swift in Sources */,
