@@ -31,56 +31,44 @@
             </objects>
             <point key="canvasLocation" x="-2393" y="-1482"/>
         </scene>
-        <!--Morning Ceremony View Controller-->
+        <!--Morning Ceremony Question View Controller-->
         <scene sceneID="j0c-Hm-2aw">
             <objects>
-                <viewController id="xQl-Gm-nWj" customClass="morningCeremonyViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="morningCeremonyQuestionViewController" id="xQl-Gm-nWj" customClass="morningCeremonyQuestionViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xX2-cJ-o7z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="V41-Xk-pRI">
                                 <rect key="frame" x="67" y="250" width="241" height="312"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="backgroundColor" systemColor="systemGray3Color" red="0.78039215689999997" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKM-TM-1O9">
-                                <rect key="frame" x="160" y="187" width="55" height="19.333333333333343"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="1:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1mJ-Au-urg">
-                                        <rect key="frame" x="0.0" y="0.0" width="13.333333333333334" height="19.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Noc-Lw-Akg">
-                                        <rect key="frame" x="13.333333333333339" y="0.0" width="41.666666666666657" height="19.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <label verifyAmbiguity="off" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="200" placeholderIntrinsicHeight="60" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Noc-Lw-Akg">
+                                <rect key="frame" x="87.333333333333329" y="98" width="200.33333333333337" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="ZKM-TM-1O9" firstAttribute="centerX" secondItem="V41-Xk-pRI" secondAttribute="centerX" id="2R8-fg-1KT"/>
-                            <constraint firstItem="ZKM-TM-1O9" firstAttribute="top" secondItem="se8-WJ-Y1r" secondAttribute="top" constant="143" id="9oa-9U-vAq"/>
-                            <constraint firstItem="V41-Xk-pRI" firstAttribute="top" secondItem="ZKM-TM-1O9" secondAttribute="bottom" constant="43.666666666666657" id="VeR-ho-GGZ"/>
+                            <constraint firstItem="V41-Xk-pRI" firstAttribute="centerX" secondItem="Noc-Lw-Akg" secondAttribute="centerX" id="AoQ-Ll-NxQ"/>
                             <constraint firstItem="V41-Xk-pRI" firstAttribute="leading" secondItem="se8-WJ-Y1r" secondAttribute="leading" constant="67" id="Wdh-kw-A1t"/>
-                            <constraint firstItem="ZKM-TM-1O9" firstAttribute="leading" secondItem="se8-WJ-Y1r" secondAttribute="leading" constant="160" id="l3h-cR-HHz"/>
+                            <constraint firstItem="se8-WJ-Y1r" firstAttribute="trailing" secondItem="Noc-Lw-Akg" secondAttribute="trailing" constant="87.333333333333314" id="dZD-mJ-hTc"/>
+                            <constraint firstItem="Noc-Lw-Akg" firstAttribute="leading" secondItem="se8-WJ-Y1r" secondAttribute="leading" constant="87.333333333333329" id="erZ-vV-LtB"/>
+                            <constraint firstItem="V41-Xk-pRI" firstAttribute="centerX" secondItem="xX2-cJ-o7z" secondAttribute="centerX" id="jl1-Am-keQ"/>
                             <constraint firstItem="V41-Xk-pRI" firstAttribute="centerY" secondItem="xX2-cJ-o7z" secondAttribute="centerY" id="q1H-Wk-61R"/>
                             <constraint firstItem="se8-WJ-Y1r" firstAttribute="bottom" secondItem="V41-Xk-pRI" secondAttribute="bottom" constant="216" id="r4i-3v-mpy"/>
-                            <constraint firstItem="ZKM-TM-1O9" firstAttribute="centerX" secondItem="se8-WJ-Y1r" secondAttribute="centerX" id="uoi-rq-ehi"/>
+                            <constraint firstItem="V41-Xk-pRI" firstAttribute="top" secondItem="Noc-Lw-Akg" secondAttribute="bottom" constant="92" id="sL5-Q4-hro"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="se8-WJ-Y1r"/>
                     </view>
                     <connections>
+                        <outlet property="morningCeremonyAnswer" destination="V41-Xk-pRI" id="b3F-Nf-HjQ"/>
                         <outlet property="morningQuestion" destination="Noc-Lw-Akg" id="j8p-oa-qZ5"/>
-                        <outlet property="questionNumber" destination="1mJ-Au-urg" id="crJ-Fy-2NG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sW-Go-ojy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -106,6 +94,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="aql-AF-sjn"/>
                     </view>
+                    <connections>
+                        <outlet property="prayerText" destination="Gld-Kd-Kyf" id="au9-Wu-Xvq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FKp-MB-NcX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -120,30 +111,37 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1. 뭐뭐 하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWV-fv-SPw">
-                                <rect key="frame" x="54" y="81" width="154" height="133"/>
+                                <rect key="frame" x="67" y="243" width="154" height="133"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2. 뭐뭐 하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIg-xB-7IW">
-                                <rect key="frame" x="54" y="193" width="154" height="133"/>
+                                <rect key="frame" x="67" y="355" width="154" height="133"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3. 뭐뭐 하기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6a-NA-U5h">
-                                <rect key="frame" x="54" y="305" width="154" height="133"/>
+                                <rect key="frame" x="67" y="485" width="154" height="133"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkK-Wa-eI8">
-                                <rect key="frame" x="270" y="60" width="95" height="52"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="오늘은 어떤 일이 일어나야만 하는가?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LSx-Tr-JMY">
+                                <rect key="frame" x="64" y="147" width="246" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="makeNew"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bkK-Wa-eI8">
+                                <rect key="frame" x="233" y="622" width="95" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="morning"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
