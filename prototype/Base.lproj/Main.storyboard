@@ -10,7 +10,7 @@
         <!--Goals-->
         <scene sceneID="bGA-hS-omX">
             <objects>
-                <viewController id="XuD-ZX-cPz" customClass="GoalsViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XuD-ZX-cPz" customClass="GoalsViewController" customModule="MJ23" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PCE-MZ-D6j">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -23,10 +23,10 @@
             </objects>
             <point key="canvasLocation" x="620" y="-387"/>
         </scene>
-        <!--Morning Ceremony Question View Controller-->
+        <!--Ceremony Question View Controller-->
         <scene sceneID="j0c-Hm-2aw">
             <objects>
-                <viewController storyboardIdentifier="morningCeremonyQuestionViewController" id="xQl-Gm-nWj" customClass="morningCeremonyQuestionViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CeremonyQuestionViewController" id="xQl-Gm-nWj" customClass="CeremonyQuestionViewController" customModule="MJ23" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xX2-cJ-o7z">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -59,8 +59,8 @@
                         <viewLayoutGuide key="safeArea" id="se8-WJ-Y1r"/>
                     </view>
                     <connections>
-                        <outlet property="morningCeremonyAnswer" destination="V41-Xk-pRI" id="b3F-Nf-HjQ"/>
-                        <outlet property="morningQuestion" destination="Noc-Lw-Akg" id="j8p-oa-qZ5"/>
+                        <outlet property="CeremonyAnswer" destination="V41-Xk-pRI" id="b3F-Nf-HjQ"/>
+                        <outlet property="Question" destination="Noc-Lw-Akg" id="j8p-oa-qZ5"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1sW-Go-ojy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -70,7 +70,7 @@
         <!--Morning Ceremony Prayer View Controller-->
         <scene sceneID="Tzm-rJ-Ifm">
             <objects>
-                <viewController id="D8v-Y7-YmD" customClass="morningCeremonyPrayerViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="D8v-Y7-YmD" customClass="morningCeremonyPrayerViewController" customModule="MJ23" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ndJ-Q1-kQt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -97,7 +97,7 @@
         <!--Today-->
         <scene sceneID="875-Wg-GsP">
             <objects>
-                <viewController id="UE9-Zy-qBi" customClass="TodayViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="UE9-Zy-qBi" customClass="TodayViewController" customModule="MJ23" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2WG-aR-gCz">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -173,7 +173,7 @@
         <!--Honors-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="HistoryViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="HistoryViewController" customModule="MJ23" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -189,7 +189,7 @@
         <!--Additional-->
         <scene sceneID="7Hc-fW-3Be">
             <objects>
-                <viewController id="o1d-3N-FtW" customClass="AdditionalViewController" customModule="prototype" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="o1d-3N-FtW" customClass="AdditionalViewController" customModule="MJ23" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="NQP-JL-pYc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

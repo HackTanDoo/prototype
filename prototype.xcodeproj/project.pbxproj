@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		38153BE824FED85000908A5D /* morningCeremonyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38153BE724FED85000908A5D /* morningCeremonyViewController.swift */; };
-		385022792500B19A00A379E8 /* morningCeremonyPrayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385022782500B19A00A379E8 /* morningCeremonyPrayerViewController.swift */; };
+		38153BE824FED85000908A5D /* CeremonyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38153BE724FED85000908A5D /* CeremonyViewController.swift */; };
+		385022792500B19A00A379E8 /* CeremonyPrayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385022782500B19A00A379E8 /* CeremonyPrayerViewController.swift */; };
 		388FC42224FEC0AF00DFBFCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC42124FEC0AF00DFBFCE /* AppDelegate.swift */; };
 		388FC42424FEC0AF00DFBFCE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC42324FEC0AF00DFBFCE /* SceneDelegate.swift */; };
 		388FC42924FEC0AF00DFBFCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 388FC42724FEC0AF00DFBFCE /* Main.storyboard */; };
@@ -22,13 +22,12 @@
 		388FC44624FECE8800DFBFCE /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC44524FECE8800DFBFCE /* Goals.swift */; };
 		388FC44824FECE9500DFBFCE /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC44724FECE9500DFBFCE /* History.swift */; };
 		388FC44A24FECEA800DFBFCE /* Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC44924FECEA800DFBFCE /* Additional.swift */; };
-		38F5719E25024D3F003A98FC /* CermonyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F5719D25024D3F003A98FC /* CermonyController.swift */; };
 		38F816B924FF2E5D009BA342 /* notes.strings in Resources */ = {isa = PBXBuildFile; fileRef = 38F816B824FF2E5D009BA342 /* notes.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		38153BE724FED85000908A5D /* morningCeremonyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = morningCeremonyViewController.swift; sourceTree = "<group>"; };
-		385022782500B19A00A379E8 /* morningCeremonyPrayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = morningCeremonyPrayerViewController.swift; sourceTree = "<group>"; };
+		38153BE724FED85000908A5D /* CeremonyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeremonyViewController.swift; sourceTree = "<group>"; };
+		385022782500B19A00A379E8 /* CeremonyPrayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeremonyPrayerViewController.swift; sourceTree = "<group>"; };
 		388FC41E24FEC0AF00DFBFCE /* MJ23.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJ23.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		388FC42124FEC0AF00DFBFCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		388FC42324FEC0AF00DFBFCE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -44,7 +43,6 @@
 		388FC44524FECE8800DFBFCE /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
 		388FC44724FECE9500DFBFCE /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		388FC44924FECEA800DFBFCE /* Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Additional.swift; sourceTree = "<group>"; };
-		38F5719D25024D3F003A98FC /* CermonyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CermonyController.swift; sourceTree = "<group>"; };
 		38F816B824FF2E5D009BA342 /* notes.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = notes.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -63,9 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				388FC43B24FECD6900DFBFCE /* TodayViewController.swift */,
-				38153BE724FED85000908A5D /* morningCeremonyViewController.swift */,
-				38F5719D25024D3F003A98FC /* CermonyController.swift */,
-				385022782500B19A00A379E8 /* morningCeremonyPrayerViewController.swift */,
+				38153BE724FED85000908A5D /* CeremonyViewController.swift */,
+				385022782500B19A00A379E8 /* CeremonyPrayerViewController.swift */,
 				388FC44324FECE7800DFBFCE /* Today.swift */,
 			);
 			path = Today;
@@ -190,8 +187,7 @@
 			files = (
 				388FC44824FECE9500DFBFCE /* History.swift in Sources */,
 				388FC42224FEC0AF00DFBFCE /* AppDelegate.swift in Sources */,
-				385022792500B19A00A379E8 /* morningCeremonyPrayerViewController.swift in Sources */,
-				38F5719E25024D3F003A98FC /* CermonyController.swift in Sources */,
+				385022792500B19A00A379E8 /* CeremonyPrayerViewController.swift in Sources */,
 				388FC43E24FECD9200DFBFCE /* GoalsViewController.swift in Sources */,
 				388FC42424FEC0AF00DFBFCE /* SceneDelegate.swift in Sources */,
 				388FC44A24FECEA800DFBFCE /* Additional.swift in Sources */,
@@ -200,7 +196,7 @@
 				388FC44024FECDA200DFBFCE /* HistoryViewController.swift in Sources */,
 				388FC44424FECE7800DFBFCE /* Today.swift in Sources */,
 				388FC43C24FECD6900DFBFCE /* TodayViewController.swift in Sources */,
-				38153BE824FED85000908A5D /* morningCeremonyViewController.swift in Sources */,
+				38153BE824FED85000908A5D /* CeremonyViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

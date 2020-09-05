@@ -9,16 +9,17 @@
 import UIKit
 import CoreData
 
-class morningCeremonyQuestionViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate{
+class CeremonyQuestionViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate{
     
-    @IBOutlet weak var morningQuestion: UILabel!
+    @IBOutlet weak var Question: UILabel!
     
-    @IBOutlet weak var morningCeremonyAnswer: UITextView! {
+    @IBOutlet weak var CeremonyAnswer: UITextView! {
         didSet {
-            morningCeremonyAnswer.delegate = self
+            CeremonyAnswer.delegate = self
         }
     }
     
+    private(set) var morning : Bool = true
     private(set) var number : Int = 0
     private(set) var question : String = ""
     private(set) var answer : String = ""
@@ -26,19 +27,24 @@ class morningCeremonyQuestionViewController: UIViewController, UITextViewDelegat
     static var Today = today()
     
     override func viewDidLoad() {
-        morningQuestion.text = String(number)+" : "+question
-        morningCeremonyAnswer.text = answer
-        print("morningCeremontQuestionViewController viewDidLoad is called")
+        Question.text = String(number)+" : "+question
+        CeremonyAnswer.text = answer
+        print("CeremontQuestionViewController viewDidLoad is called")
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        print("ViewDidDisappear in morningQuestionViewController UPdated")
-        morningCeremonyQuestionViewController.Today.morningAnswers[number-1] = morningCeremonyAnswer.text
+        print("ViewDidDisappear in QuestionViewController UPdated")
 //        for answer in morningCeremonyQuestionViewController.Today.morningAnswers {
 //            print(answer)
 //        }
-        UserDefaults.standard.set(morningCeremonyQuestionViewController.Today.morningAnswers, forKey: "morningAnswers")
+        if morning{
+            CeremonyQuestionViewController.Today.morningAnswers[number-1] = CeremonyAnswer.text
+            UserDefaults.standard.set(CeremonyQuestionViewController.Today.morningAnswers, forKey: "morningAnswers")
+        } else{
+            CeremonyQuestionViewController.Today.nightAnswers[number-1] = CeremonyAnswer.text
+            UserDefaults.standard.set(CeremonyQuestionViewController.Today.nightAnswers, forKey: "nightAnswers")
+        }
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
@@ -50,7 +56,8 @@ class morningCeremonyQuestionViewController: UIViewController, UITextViewDelegat
     }
 
     
-    init?(coder: NSCoder, number: Int, question : String, answer: String){
+    init?(coder: NSCoder, morning : Bool, number: Int, question : String, answer: String){
+        self.morning = morning
         self.number = number
         self.question = question
         self.answer = answer
