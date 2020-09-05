@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Today" representedClassName="Today" syncable="YES" codeGenerationType="class">
+        <attribute name="morningAnswers" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="morningCeremony" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="morningQuestions" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="nightAnswers" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="nightCeremony" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="nightQuestions" optional="YES" attributeType="Transformable" customClassName="[String]"/>
+        <attribute name="prayerForMorning" optional="YES" attributeType="String"/>
+        <attribute name="prayerForNight" optional="YES" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Today" positionX="-6164.890625" positionY="-1830.0625" width="128" height="163"/>
+    </elements>
+</model>

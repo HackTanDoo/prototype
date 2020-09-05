@@ -7,29 +7,69 @@
 //
 
 import UIKit
+import CoreData
 
 class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate{
 
     private var Today = today()
-    
+    private var date = Date()
+
     private var morningCeremonyControllers = [UIViewController]()
     private var nightCeremonyViewControllers = [UIViewController]()
     
     @IBOutlet weak var button: UIButton!
     
+    func setState(){
+        if let morningAnswers = UserDefaults.standard.value(forKey: "morningAnswers"),
+            let morningQuestions = UserDefaults.standard.value(forKey: "morningQuestions"),
+            let prayerForMorning = UserDefaults.standard.value(forKey: "prayerForMorning"),
+            let nightAnswers = UserDefaults.standard.value(forKey: "nightAnswers"),
+            let nightQuestions = UserDefaults.standard.value(forKey: "nightQuestions"),
+            let prayerForNight = UserDefaults.standard.value(forKey : "prayerForNight"),
+            let morningCeremony = UserDefaults.standard.value(forKey: "morningCeremony"),
+            let nightCeremony = UserDefaults.standard.value(forKey: "nightCeremony")
+        {
+            print("if is called")
+            Today.morningAnswers = morningAnswers as! [String]
+            Today.morningQuestions = morningQuestions as! [String]
+            Today.prayerForMorning = prayerForMorning as! String
+            Today.nightAnswers = nightAnswers as! [String]
+            Today.nightQuestions = nightQuestions as! [String]
+            Today.prayerForNight = prayerForNight as! String
+            Today.morningCeremony = morningCeremony as! Bool
+            Today.nightCeremony = nightCeremony as! Bool
+        } else {
+            print("else is called")
+            UserDefaults.standard.set(Today.morningAnswers, forKey: "morningAnswers")
+            UserDefaults.standard.set(Today.morningQuestions, forKey: "morningQuestions")
+            UserDefaults.standard.set(Today.morningCeremony, forKey: "morningCeremony")
+            UserDefaults.standard.set(Today.prayerForMorning, forKey: "prayerForMorning")
+            UserDefaults.standard.set(Today.nightQuestions, forKey: "nightQuestions")
+            UserDefaults.standard.set(Today.nightCeremony, forKey: "nightCeremony")
+            UserDefaults.standard.set(Today.nightAnswers, forKey: "nightAnswers")
+            UserDefaults.standard.set(Today.prayerForNight, forKey: "prayerForNight")
+            for question in Today.morningQuestions {
+                print(question)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(date)
+        setState()
         
-        for (index,question) in Today.morningQuestions.enumerated() {
+        for index in 0..<Today.morningQeustionsCount {
             guard let morningQuestionController = storyboard?.instantiateViewController(identifier: "morningCeremonyQuestionViewController", creator: {coder in
-                morningCeremonyQuestionViewController(coder: coder, number: index+1 , question: question)
+                morningCeremonyQuestionViewController(coder: coder, number: index+1 , question: self.Today.morningQuestions[index], answer : self.Today.morningAnswers[index])
             }) else {
                 fatalError("Unable to create morningQeustionController")
             }
             morningCeremonyControllers.append(morningQuestionController)
-            print("For Loop is called \(index) : \(question)")
+            print("For Loop is called \(index) : \(self.Today.morningQuestions[index]) : \(self.Today.morningAnswers[index])")
         }
         
+        morningCeremonyQuestionViewController.Today = Today
         
     }
 
@@ -44,8 +84,9 @@ class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIP
     }
     
     func presentPageVC(){
-        guard let first = morningCeremonyControllers.first else {return }
-        let vc = UIPageViewController(transitionStyle: .pageCurl,
+        guard let first = morningCeremonyControllers.first else {fatalError("No units for morningCeremonyControllers") }
+        print("presentPageVC is called")
+        let vc = UIPageViewController(transitionStyle: .scroll,
                                       navigationOrientation: .horizontal,
                                       options: nil)
         vc.delegate = self
@@ -57,6 +98,7 @@ class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIP
                               completion: nil)
         
         present(vc, animated: true)
+        print("present is called")
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerBefore viewController: UIViewController) -> UIViewController? {
@@ -64,16 +106,20 @@ class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIP
             return nil
         }
         let before = index - 1
-        print("before called")
-        let tempController = morningCeremonyControllers[index] as? morningCeremonyQuestionViewController
-        Today.morningAnswers.append(tempController?.morningCeremonyAnswer.text ?? "?")
+//        let target = morningCeremonyControllers[index] as! morningCeremonyQuestionViewController
+//        let text = target.morningCeremonyAnswer.text
+//        Today.morningAnswers[index] = text!
+        print(date)
         return morningCeremonyControllers[before]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let index = morningCeremonyControllers.firstIndex(of: viewController), index < morningCeremonyControllers.count - 1 else {return nil}
         let after = index + 1
-        print("after clled")
+//        let target = morningCeremonyControllers[index] as! morningCeremonyQuestionViewController
+//        let text = target.morningCeremonyAnswer.text
+//        Today.morningAnswers[index] = text!
+        print(date)
         return morningCeremonyControllers[after]
     }
     
