@@ -11,6 +11,12 @@ import CoreData
 
 class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate{
 
+    @IBOutlet weak var todayPromise: UILabel!
+    var todayPromiseText = "" {
+        didSet{
+            todayPromise.text = todayPromiseText
+        }
+    }
     private var Today = today()
     private var presentCeremonyView = true
     private var CeremonyControllers = [UIViewController]()
@@ -20,6 +26,8 @@ class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIP
         super.viewDidLoad()
         setState()
         resetCeremonyStatesByDay()
+        todayPromiseText = Today.morningAnswers[3]
+        
         
         let morningCeremony = (UserDefaults.standard.value(forKey: "morningCeremony") ?? false) as! Bool
         let nightCeremony = (UserDefaults.standard.value(forKey: "nightCermeony") ?? false) as! Bool
@@ -34,20 +42,78 @@ class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIP
                 guard let QuestionController = storyboard?.instantiateViewController(identifier: "CeremonyQuestionViewController", creator: {coder in
                     CeremonyQuestionViewController(coder: coder, morning : !morningCeremony, number: index+1 , question: Question, answer : Answer)
                 }) else {
-                    fatalError("Unable to create morningQeustionController")
+                    fatalError("Unable to create QeustionController")
                 }
                 CeremonyControllers.append(QuestionController)
                 print("For Loop is called \(index) : \(Question) : \(Answer)")
             }
+            let prayer = !morningCeremony ? self.Today.prayerForMorning : self.Today.prayerForNight
+            guard let prayerController = storyboard?.instantiateViewController(identifier: "CeremonyPrayerViewController", creator: { coder in
+                CeremonyPrayerViewController(coder : coder, prayer: prayer)
+            }) else{
+                fatalError("Unable to create PrayerController")
+            }
+            CeremonyControllers.append(prayerController)
+            CeremonyQuestionViewController.Today = Today
         }
-        
-        CeremonyQuestionViewController.Today = Today
     }
 
+    @IBAction func performMoningCeremony(_ sender: UIButton) {
+        CeremonyControllers = [UIViewController]()
+        let count = self.Today.morningQuestions.count
+        for index in 0..<count {
+            let Question = self.Today.morningQuestions[index]
+            let Answer = self.Today.morningAnswers[index]
+            guard let QuestionController = storyboard?.instantiateViewController(identifier: "CeremonyQuestionViewController", creator: {coder in
+                CeremonyQuestionViewController(coder: coder, morning : true, number: index+1 , question: Question, answer : Answer)
+            }) else {
+                fatalError("Unable to create QeustionController")
+            }
+            CeremonyControllers.append(QuestionController)
+            print("For Loop is called \(index) : \(Question) : \(Answer)")
+        }
+        let prayer = self.Today.prayerForMorning
+        guard let prayerController = storyboard?.instantiateViewController(identifier: "CeremonyPrayerViewController", creator: { coder in
+            CeremonyPrayerViewController(coder : coder, prayer: prayer)
+        }) else{
+            fatalError("Unable to create PrayerController")
+        }
+        CeremonyControllers.append(prayerController)
+        CeremonyQuestionViewController.Today = Today
+        self.presentPageVC()
+    }
+    
+    @IBAction func performNightCeremony(_ sender: UIButton) {
+        CeremonyControllers = [UIViewController]()
+        let count = self.Today.nightQuestions.count
+        for index in 0..<count {
+            let Question = self.Today.nightQuestions[index]
+            let Answer = self.Today.nightAnswers[index]
+            guard let QuestionController = storyboard?.instantiateViewController(identifier: "CeremonyQuestionViewController", creator: {coder in
+                CeremonyQuestionViewController(coder: coder, morning : false, number: index+1 , question: Question, answer : Answer)
+            }) else {
+                fatalError("Unable to create QeustionController")
+            }
+            CeremonyControllers.append(QuestionController)
+            print("For Loop is called \(index) : \(Question) : \(Answer)")
+        }
+        let prayer = self.Today.prayerForNight
+        guard let prayerController = storyboard?.instantiateViewController(identifier: "CeremonyPrayerViewController", creator: { coder in
+            CeremonyPrayerViewController(coder : coder, prayer: prayer)
+        }) else{
+            fatalError("Unable to create PrayerController")
+        }
+        CeremonyControllers.append(prayerController)
+        CeremonyQuestionViewController.Today = Today
+        self.presentPageVC()
+    }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("ViewDidLoad Called")
         let hour = Calendar.current.component(.hour, from: Date())
+        
         if !Today.morningCeremony || (!Today.nightCeremony && hour > 21) {
             DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
                 self.presentPageVC()

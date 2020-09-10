@@ -1,15 +1,20 @@
 //
-//  GoalsViewController.swift
+//  addingGoalsViewController.swift
 //  prototype
 //
-//  Created by 김민준 on 2020/09/02.
+//  Created by 김민준 on 2020/09/10.
 //  Copyright © 2020 김민준. All rights reserved.
 //
 
 import UIKit
 
-class GoalsViewController: UIViewController {
+class addingGoalsViewController: UIViewController {
 
+    
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

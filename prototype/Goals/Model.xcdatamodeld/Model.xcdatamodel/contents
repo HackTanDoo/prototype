@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="AbstractGoals" representedClassName="AbstractGoals" syncable="YES">
+        <attribute name="clear" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="content" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="objectives" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ObjectiveGoals" inverseName="tags" inverseEntity="ObjectiveGoals"/>
+    </entity>
+    <entity name="Goals" representedClassName="Goals" syncable="YES">
+        <attribute name="clear" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="content" optional="YES" attributeType="String"/>
+        <attribute name="day" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="aims" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ObjectiveGoals" inverseName="goals" inverseEntity="ObjectiveGoals"/>
+    </entity>
+    <entity name="ObjectiveGoals" representedClassName="ObjectiveGoals" syncable="YES">
+        <attribute name="clear" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="content" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="goals" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goals" inverseName="aims" inverseEntity="Goals"/>
+        <relationship name="tags" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AbstractGoals" inverseName="objectives" inverseEntity="AbstractGoals"/>
+    </entity>
+    <elements>
+        <element name="AbstractGoals" positionX="-45" positionY="0" width="128" height="103"/>
+        <element name="ObjectiveGoals" positionX="-18" positionY="27" width="128" height="118"/>
+        <element name="Goals" positionX="9" positionY="54" width="128" height="118"/>
+    </elements>
+</model>

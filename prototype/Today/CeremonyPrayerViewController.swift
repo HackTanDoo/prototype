@@ -8,17 +8,20 @@
 
 import UIKit
 
-class morningCeremonyPrayerViewController: UIViewController {
+class CeremonyPrayerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        prayerText.text = text
     }
     
     @IBOutlet weak var prayerText: UILabel!
     
-    init(prayer content : String){
-        prayerText.text = content
-        super.init(nibName: nil, bundle: nil)
+    var text = ""
+    
+    init?(coder: NSCoder, prayer content : String){
+        super.init(coder: coder)
+        self.text = content
     }
     
     required init?(coder: NSCoder) {

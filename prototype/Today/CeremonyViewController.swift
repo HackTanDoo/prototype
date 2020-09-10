@@ -19,7 +19,7 @@ class CeremonyQuestionViewController: UIViewController, UITextViewDelegate, UITe
         }
     }
     
-    private(set) var morning : Bool = true
+    var morning : Bool = true
     private(set) var number : Int = 0
     private(set) var question : String = ""
     private(set) var answer : String = ""
