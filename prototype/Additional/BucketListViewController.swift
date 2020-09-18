@@ -10,9 +10,48 @@ import UIKit
 
 class BucketListViewController: UITableViewController {
 
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    
+    
+    
+    var bucketLists : [BucketList]?
+    
+    func fetchBucketList(){
+        do{
+            bucketLists = try context.fetch(BucketList.fetchRequest())
+        }catch{
+            fatalError("fetchingBucktlist fail")
+        }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+        
+    }
+    
+    @IBAction func addBucketList(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Add BucketList", message: "What do you want to do?", preferredStyle: .alert)
+        alert.addTextField()
+        let submitButton = UIAlertAction(title: "Add", style: .default, handler: {
+            action in
+            let textfield = alert.textFields![0]
+            let bucket = BucketList(context: self.context)
+            bucket.name = textfield.text!
+            do{
+                try self.context.save()
+            } catch{
+                fatalError("BucketListSaving Failed")
+            }
+            self.fetchBucketList()
+        })
+        alert.addAction(submitButton)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fetchBucketList()
+        333
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -24,23 +63,21 @@ class BucketListViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return bucketLists?.count ?? 0
     }
-
-    /*
+        
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "bucketListCell", for: indexPath)
+        cell.textLabel!.text = bucketLists![indexPath.row].name
         // Configure the cell...
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -86,5 +123,21 @@ class BucketListViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style:. destructive, title : "Delete"){
+            (action, view, completionHandler) in
+            let bucketToRemove = self.bucketLists![indexPath.row]
+            
+            self.context.delete(bucketToRemove)
+            do{
+                try self.context.save()
+            } catch{
+                fatalError("bucketListRemove Fail")
+            }
+            self.fetchBucketList()
+        }
+        return UISwipeActionsConfiguration(actions: [action])
+    }
 
 }

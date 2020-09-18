@@ -8,40 +8,76 @@
 
 import UIKit
 
-class ObjectiveGoalsTableViewController: UITableViewController {
+var objectiveGoalIndex = -1
+
+class ObjectiveGoalsTableViewController: UITableViewController, dismissCall {
+    func dismissisCalled() {
+        fetchObjectGoal()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        fetchObjectGoal()
     }
 
+    var objectiveGoals : [ObjectiveGoals]?
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
+    func fetchObjectGoal(){
+        do{
+            try objectiveGoals = self.context.fetch(ObjectiveGoals.fetchRequest())
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            objectiveGoalIndex = -1
+        } catch{
+            fatalError("fetchObjectGoals failed")
+        }
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return objectiveGoals?.count ?? 0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ObjectiveGoalCell", for: indexPath)
+        cell.textLabel?.text = objectiveGoals![indexPath.row].title
         // Configure the cell...
 
         return cell
     }
-    */
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        objectiveGoalIndex = indexPath.row
+        performSegue(withIdentifier: "plusObjective", sender: self)
+    }
+    
 
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style:. destructive, title : "Delete"){
+            (action, view, completionHandler) in
+            let objectiveGoalToRemove = self.objectiveGoals![indexPath.row]
+            
+            self.context.delete(objectiveGoalToRemove)
+            do{
+                try self.context.save()
+            } catch{
+                fatalError("objectiveGoalToRemoveFail")
+            }
+            self.fetchObjectGoal()
+        }
+        return UISwipeActionsConfiguration(actions: [action])
+    }
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -86,5 +122,11 @@ class ObjectiveGoalsTableViewController: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "plusObjective" {
+            let vc = segue.destination as! addingObjectiveGoalsViewController
+            vc.delegate = self
+        }
+    }
 }

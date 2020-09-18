@@ -8,7 +8,7 @@
 
 import UIKit
 
-class addingObjectiveGoalsViewController: UIViewController,UIPickerViewDelegate, UIPickerViewDataSource {
+class addingObjectiveGoalsViewController: UIViewController,UITextFieldDelegate, UITextViewDelegate {
     
     var delegate : dismissCall?
     
@@ -16,23 +16,11 @@ class addingObjectiveGoalsViewController: UIViewController,UIPickerViewDelegate,
     
     private var abstractGoals : [AbstractGoals]?
     
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return abstractGoals?.count ?? 0
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return abstractGoals![row].title
-    }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        abstractGoalPicker.delegate = self
-        abstractGoalPicker.dataSource = self
+        GoalTextField.delegate = self
+        ContentTextView.delegate = self
         do{
             try abstractGoals = context.fetch(AbstractGoals.fetchRequest())
         } catch {
@@ -41,8 +29,25 @@ class addingObjectiveGoalsViewController: UIViewController,UIPickerViewDelegate,
         // Do any additional setup after loading the view.
     }
     
-
-    @IBOutlet weak var abstractGoalPicker: UIPickerView!
+    @IBOutlet weak var GoalTextField: UITextField!
+    @IBOutlet weak var ContentTextView: UITextView!
+    
+    
+    @IBAction func makeObjectiveGoal(_ sender: UIButton) {
+        let newObjectiveGoal = ObjectiveGoals(context: context)
+        newObjectiveGoal.clear = false
+        newObjectiveGoal.content = ContentTextView.text!
+        newObjectiveGoal.title = GoalTextField.text!
+        
+        do{
+            try self.context.save()
+            print("ObjectiveGoal is saved")
+        }catch {
+            fatalError("makeObjectiveGoalError Occur")
+        }
+        delegate?.dismissisCalled()
+        dismiss(animated: true)
+    }
     
     
     /*
@@ -55,4 +60,12 @@ class addingObjectiveGoalsViewController: UIViewController,UIPickerViewDelegate,
     }
     */
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+          self.view.endEditing(true)
+
+    }
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 }

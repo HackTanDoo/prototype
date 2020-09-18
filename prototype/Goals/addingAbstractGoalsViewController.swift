@@ -13,19 +13,22 @@ protocol dismissCall {
     func dismissisCalled()
 }
 
-class addingAbstractGoalsViewController: UIViewController {
-
+class addingAbstractGoalsViewController: UIViewController, UITextViewDelegate,UITextFieldDelegate {
+    
+    
     var delegate : dismissCall?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        TitleTextField.delegate = self
+        ContentTextView.delegate = self
         // Do any additional setup after loading the view.
     }
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet weak var TitleTextField: UITextField!
-    @IBOutlet weak var ContentTextField: UITextField!
+    @IBOutlet weak var ContentTextView: UITextView!
     
     private var Title = ""
     private var Content = ""
@@ -34,11 +37,12 @@ class addingAbstractGoalsViewController: UIViewController {
         let newAbstractGoal = AbstractGoals(context: context)
         
         Title = TitleTextField.text!
-        Content = ContentTextField.text!
+        Content = ContentTextView.text!
         
         newAbstractGoal.title = Title
         newAbstractGoal.content = Content
-    
+        newAbstractGoal.clear = false
+        
         do{
             try self.context.save()
             print("AbstractGoal is saved")
@@ -57,5 +61,15 @@ class addingAbstractGoalsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+          self.view.endEditing(true)
+
+    }
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
 
 }

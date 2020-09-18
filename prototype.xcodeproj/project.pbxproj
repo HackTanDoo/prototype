@@ -34,6 +34,8 @@
 		38CF94F42509C86C00DBA117 /* addingObjectiveGoalsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF94F32509C86C00DBA117 /* addingObjectiveGoalsViewController.swift */; };
 		38CF94F62509C8EA00DBA117 /* AbstractGoalsTableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF94F52509C8EA00DBA117 /* AbstractGoalsTableTableViewController.swift */; };
 		38CF94F82509C8FC00DBA117 /* ObjectiveGoalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF94F72509C8FC00DBA117 /* ObjectiveGoalsTableViewController.swift */; };
+		38CF94FB250A1C4000DBA117 /* BucketList+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF94F9250A1C4000DBA117 /* BucketList+CoreDataClass.swift */; };
+		38CF94FC250A1C4000DBA117 /* BucketList+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF94FA250A1C4000DBA117 /* BucketList+CoreDataProperties.swift */; };
 		38F816B924FF2E5D009BA342 /* notes.strings in Resources */ = {isa = PBXBuildFile; fileRef = 38F816B824FF2E5D009BA342 /* notes.strings */; };
 /* End PBXBuildFile section */
 
@@ -67,6 +69,8 @@
 		38CF94F32509C86C00DBA117 /* addingObjectiveGoalsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addingObjectiveGoalsViewController.swift; sourceTree = "<group>"; };
 		38CF94F52509C8EA00DBA117 /* AbstractGoalsTableTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbstractGoalsTableTableViewController.swift; sourceTree = "<group>"; };
 		38CF94F72509C8FC00DBA117 /* ObjectiveGoalsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectiveGoalsTableViewController.swift; sourceTree = "<group>"; };
+		38CF94F9250A1C4000DBA117 /* BucketList+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BucketList+CoreDataClass.swift"; sourceTree = "<group>"; };
+		38CF94FA250A1C4000DBA117 /* BucketList+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BucketList+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		38F816B824FF2E5D009BA342 /* notes.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = notes.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +156,8 @@
 		38CF94A725037DDD00DBA117 /* Additional */ = {
 			isa = PBXGroup;
 			children = (
+				38CF94F9250A1C4000DBA117 /* BucketList+CoreDataClass.swift */,
+				38CF94FA250A1C4000DBA117 /* BucketList+CoreDataProperties.swift */,
 				388FC44124FECDAD00DFBFCE /* AdditionalViewController.swift */,
 				388FC44924FECEA800DFBFCE /* Additional.swift */,
 				38CF94AA2507C1B300DBA117 /* BucketListViewController.swift */,
@@ -264,6 +270,7 @@
 				388FC42424FEC0AF00DFBFCE /* SceneDelegate.swift in Sources */,
 				38CF94EA2509C55000DBA117 /* Goals+CoreDataProperties.swift in Sources */,
 				38CF94E52509C55000DBA117 /* AbstractGoals+CoreDataClass.swift in Sources */,
+				38CF94FC250A1C4000DBA117 /* BucketList+CoreDataProperties.swift in Sources */,
 				38CF94E62509C55000DBA117 /* AbstractGoals+CoreDataProperties.swift in Sources */,
 				38CF94AB2507C1B300DBA117 /* BucketListViewController.swift in Sources */,
 				38CF94E72509C55000DBA117 /* ObjectiveGoals+CoreDataClass.swift in Sources */,
@@ -272,6 +279,7 @@
 				388FC44A24FECEA800DFBFCE /* Additional.swift in Sources */,
 				388FC44224FECDAD00DFBFCE /* AdditionalViewController.swift in Sources */,
 				38CF94F82509C8FC00DBA117 /* ObjectiveGoalsTableViewController.swift in Sources */,
+				38CF94FB250A1C4000DBA117 /* BucketList+CoreDataClass.swift in Sources */,
 				388FC44024FECDA200DFBFCE /* HistoryViewController.swift in Sources */,
 				388FC44424FECE7800DFBFCE /* Today.swift in Sources */,
 				388FC43C24FECD6900DFBFCE /* TodayViewController.swift in Sources */,

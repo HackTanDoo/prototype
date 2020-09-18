@@ -8,6 +8,8 @@
 
 import UIKit
 
+var abstractGoalIndex = -1
+
 class AbstractGoalsTableTableViewController: UITableViewController, dismissCall {
     
     func dismissisCalled() {
@@ -24,6 +26,7 @@ class AbstractGoalsTableTableViewController: UITableViewController, dismissCall 
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
+            abstractGoalIndex = -1
             
         } catch{
             fatalError("Can't fetch AbstractGoals")
@@ -31,20 +34,9 @@ class AbstractGoalsTableTableViewController: UITableViewController, dismissCall 
         
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        fetchAbstractGoals()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
          fetchAbstractGoals()
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        fetchAbstractGoals()
     }
 
     // MARK: - Table view data source
@@ -91,7 +83,7 @@ class AbstractGoalsTableTableViewController: UITableViewController, dismissCall 
     */
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "plus" {
+        if segue.identifier == "plusAbstract" {
             let vc = segue.destination as! addingAbstractGoalsViewController
             vc.delegate = self
         }
@@ -106,13 +98,19 @@ class AbstractGoalsTableTableViewController: UITableViewController, dismissCall 
             do{
                 try self.context.save()
             } catch{
-                fatalError("abstracyGoalToRemoveFail")
+                fatalError("abstractGoalToRemoveFail")
             }
             self.fetchAbstractGoals()
         }
         return UISwipeActionsConfiguration(actions: [action])
     }
-
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        abstractGoalIndex = indexPath.row
+        performSegue(withIdentifier: "plusAbstract", sender: self)
+    }
+    
+    
     /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
