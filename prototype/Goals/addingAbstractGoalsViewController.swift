@@ -17,15 +17,27 @@ class addingAbstractGoalsViewController: UIViewController, UITextViewDelegate,UI
     
     
     var delegate : dismissCall?
+    var isByPlus = false
+    var AbstractGoalsCollection : [AbstractGoals]?
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
         TitleTextField.delegate = self
         ContentTextView.delegate = self
         // Do any additional setup after loading the view.
+        isByPlus = abstractGoalIndex == -1 ? true : false
+        if !isByPlus {
+            do{
+                try AbstractGoalsCollection = context.fetch(AbstractGoals.fetchRequest())
+            } catch{
+                fatalError("Can't fetch AbstractGoals in modifying")
+            }
+            TitleTextField.text = AbstractGoalsCollection![abstractGoalIndex].title
+            ContentTextView.text = AbstractGoalsCollection![abstractGoalIndex].content
+        }
+        
     }
-    
-    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     @IBOutlet weak var TitleTextField: UITextField!
     @IBOutlet weak var ContentTextView: UITextView!
@@ -34,7 +46,15 @@ class addingAbstractGoalsViewController: UIViewController, UITextViewDelegate,UI
     private var Content = ""
     
     @IBAction func makeAbstractGoal(_ sender: UIButton) {
-        let newAbstractGoal = AbstractGoals(context: context)
+        if isByPlus{
+            makeNewGoal()
+        } else {
+            modifyTheGoal()
+        }
+    }
+    
+    func makeNewGoal() {
+       let newAbstractGoal = AbstractGoals(context: context)
         
         Title = TitleTextField.text!
         Content = ContentTextView.text!
@@ -52,6 +72,23 @@ class addingAbstractGoalsViewController: UIViewController, UITextViewDelegate,UI
         delegate?.dismissisCalled()
         dismiss(animated: true)
     }
+    
+    func modifyTheGoal(){
+        let AbstractGoal = AbstractGoalsCollection![goalIndex]
+        AbstractGoal.title = TitleTextField.text!
+        AbstractGoal.content = ContentTextView.text!
+        
+        do{
+            try self.context.save()
+            print("AbstractGoal is modified")
+        }catch {
+            fatalError("making GoalError Occur")
+        }
+        
+        delegate?.dismissisCalled()
+        dismiss(animated: true)
+    }
+    
     /*
     // MARK: - Navigation
 

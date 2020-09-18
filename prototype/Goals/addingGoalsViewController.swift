@@ -17,17 +17,39 @@ class addingGoalsViewController: UIViewController, UITextFieldDelegate, UITextVi
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
+    var isByPlus = false
+    
+    var GoalsCollection : [Goals]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         GoalTextField.delegate = self
         ContentTextView.delegate = self
         // Do any additional setup after loading the view.
+        isByPlus = goalIndex == -1 ? true : false
+        if !isByPlus {
+            do{
+                GoalsCollection = try context.fetch(Goals.fetchRequest())
+            } catch{
+                fatalError("Can't fetch Goals in modifying")
+            }
+            GoalTextField.text = GoalsCollection![goalIndex].title
+            ContentTextView.text = GoalsCollection![goalIndex].content
+        }
     }
     
     private var Title = ""
     private var Content = ""
     
     @IBAction func makingGoalAction(_ sender: UIButton) {
+        if isByPlus{
+            makeNewGoal()
+        } else {
+            modifyTheGoal()
+        }
+    }
+    
+    func makeNewGoal() {
         let newGoal = Goals(context: context)
         
         Title = GoalTextField.text!
@@ -47,7 +69,21 @@ class addingGoalsViewController: UIViewController, UITextFieldDelegate, UITextVi
         dismiss(animated: true)
     }
     
-    
+    func modifyTheGoal(){
+        let Goal = GoalsCollection![goalIndex]
+        Goal.title = GoalTextField.text!
+        Goal.content = ContentTextView.text!
+        
+        do{
+            try self.context.save()
+            print("Goal is modified")
+        }catch {
+            fatalError("making GoalError Occur")
+        }
+        
+        delegate?.dismissisCalled()
+        dismiss(animated: true)
+    }
     /*
     // MARK: - Navigation
 
@@ -57,12 +93,13 @@ class addingGoalsViewController: UIViewController, UITextFieldDelegate, UITextVi
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
     func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
         self.view.endEditing(true)
         return true
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
           self.view.endEditing(true)
-
     }
 }

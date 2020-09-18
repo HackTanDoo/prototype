@@ -20,6 +20,9 @@
 		388FC44424FECE7800DFBFCE /* Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC44324FECE7800DFBFCE /* Today.swift */; };
 		388FC44824FECE9500DFBFCE /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC44724FECE9500DFBFCE /* History.swift */; };
 		388FC44A24FECEA800DFBFCE /* Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC44924FECEA800DFBFCE /* Additional.swift */; };
+		38AB7A962514D62A00A480CE /* NightCeremonySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AB7A952514D62A00A480CE /* NightCeremonySettingViewController.swift */; };
+		38AB7A982514D63B00A480CE /* MorningCeremonySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AB7A972514D63B00A480CE /* MorningCeremonySettingViewController.swift */; };
+		38AB7A9A2514E58700A480CE /* AddingQuoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AB7A992514E58700A480CE /* AddingQuoteViewController.swift */; };
 		38CF94A92507973B00DBA117 /* GoalsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF94A82507973B00DBA117 /* GoalsTableViewController.swift */; };
 		38CF94AB2507C1B300DBA117 /* BucketListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38CF94AA2507C1B300DBA117 /* BucketListViewController.swift */; };
 		38CF94AE2508525900DBA117 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 38CF94AC2508525900DBA117 /* Model.xcdatamodeld */; };
@@ -55,6 +58,9 @@
 		388FC44324FECE7800DFBFCE /* Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Today.swift; sourceTree = "<group>"; };
 		388FC44724FECE9500DFBFCE /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		388FC44924FECEA800DFBFCE /* Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Additional.swift; sourceTree = "<group>"; };
+		38AB7A952514D62A00A480CE /* NightCeremonySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightCeremonySettingViewController.swift; sourceTree = "<group>"; };
+		38AB7A972514D63B00A480CE /* MorningCeremonySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningCeremonySettingViewController.swift; sourceTree = "<group>"; };
+		38AB7A992514E58700A480CE /* AddingQuoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddingQuoteViewController.swift; sourceTree = "<group>"; };
 		38CF94A82507973B00DBA117 /* GoalsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalsTableViewController.swift; sourceTree = "<group>"; };
 		38CF94AA2507C1B300DBA117 /* BucketListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketListViewController.swift; sourceTree = "<group>"; };
 		38CF94AD2508525900DBA117 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
@@ -157,10 +163,13 @@
 			isa = PBXGroup;
 			children = (
 				38CF94F9250A1C4000DBA117 /* BucketList+CoreDataClass.swift */,
+				38AB7A992514E58700A480CE /* AddingQuoteViewController.swift */,
 				38CF94FA250A1C4000DBA117 /* BucketList+CoreDataProperties.swift */,
 				388FC44124FECDAD00DFBFCE /* AdditionalViewController.swift */,
 				388FC44924FECEA800DFBFCE /* Additional.swift */,
 				38CF94AA2507C1B300DBA117 /* BucketListViewController.swift */,
+				38AB7A952514D62A00A480CE /* NightCeremonySettingViewController.swift */,
+				38AB7A972514D63B00A480CE /* MorningCeremonySettingViewController.swift */,
 			);
 			path = Additional;
 			sourceTree = "<group>";
@@ -260,6 +269,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				388FC44824FECE9500DFBFCE /* History.swift in Sources */,
+				38AB7A982514D63B00A480CE /* MorningCeremonySettingViewController.swift in Sources */,
+				38AB7A9A2514E58700A480CE /* AddingQuoteViewController.swift in Sources */,
 				38CF94F62509C8EA00DBA117 /* AbstractGoalsTableTableViewController.swift in Sources */,
 				38CF94F22509C85D00DBA117 /* addingAbstractGoalsViewController.swift in Sources */,
 				38CF94F42509C86C00DBA117 /* addingObjectiveGoalsViewController.swift in Sources */,
@@ -285,6 +296,7 @@
 				388FC43C24FECD6900DFBFCE /* TodayViewController.swift in Sources */,
 				38CF94A92507973B00DBA117 /* GoalsTableViewController.swift in Sources */,
 				38153BE824FED85000908A5D /* CeremonyViewController.swift in Sources */,
+				38AB7A962514D62A00A480CE /* NightCeremonySettingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

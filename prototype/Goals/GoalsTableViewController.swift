@@ -69,7 +69,7 @@ class GoalsTableViewController: UITableViewController, dismissCall {
     }
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let action = UIContextualAction(style:. destructive, title : "Delete"){
+        let action = UIContextualAction(style:. normal, title : "Done"){
             (action, view, completionHandler) in
             let GoalToRemove = self.GoalsCollection![indexPath.row]
             

@@ -9,7 +9,13 @@
 import UIKit
 import CoreData
 
-class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate{
+
+class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, dismissCall{
+    func dismissisCalled() {
+        print("delegate is called")
+        todayPromiseText = Today.morningAnswers[3]
+    }
+    
 
     @IBOutlet weak var todayPromise: UILabel!
     var todayPromiseText = "" {
@@ -69,6 +75,7 @@ class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIP
             }) else {
                 fatalError("Unable to create QeustionController")
             }
+            QuestionController.delegate = self
             CeremonyControllers.append(QuestionController)
             print("For Loop is called \(index) : \(Question) : \(Answer)")
         }

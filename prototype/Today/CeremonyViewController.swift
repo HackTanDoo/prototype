@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 class CeremonyQuestionViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate{
-    
+
     @IBOutlet weak var Question: UILabel!
     
     @IBOutlet weak var CeremonyAnswer: UITextView! {
@@ -18,6 +18,7 @@ class CeremonyQuestionViewController: UIViewController, UITextViewDelegate, UITe
             CeremonyAnswer.delegate = self
         }
     }
+    var delegate : dismissCall?
     
     var morning : Bool = true
     private(set) var number : Int = 0
@@ -45,6 +46,8 @@ class CeremonyQuestionViewController: UIViewController, UITextViewDelegate, UITe
             CeremonyQuestionViewController.Today.nightAnswers[number-1] = CeremonyAnswer.text
             UserDefaults.standard.set(CeremonyQuestionViewController.Today.nightAnswers, forKey: "nightAnswers")
         }
+        delegate?.dismissisCalled()
+        print("dismiss in viewdiddisappear is called")
     }
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {

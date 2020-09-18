@@ -12,19 +12,26 @@ class addingObjectiveGoalsViewController: UIViewController,UITextFieldDelegate, 
     
     var delegate : dismissCall?
     
+    var isByPlus = false
+    var ObjectiveGoalsCollection : [ObjectiveGoals]?
+
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    private var abstractGoals : [AbstractGoals]?
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         GoalTextField.delegate = self
         ContentTextView.delegate = self
-        do{
-            try abstractGoals = context.fetch(AbstractGoals.fetchRequest())
-        } catch {
-            fatalError("fetching abstractGoals in addingObjectiveGoalsViewController is failed")
+        isByPlus = objectiveGoalIndex == -1 ? true : false
+        if !isByPlus{
+            do{
+                try ObjectiveGoalsCollection
+                    = context.fetch(ObjectiveGoals.fetchRequest())
+            } catch {
+                fatalError("fetching ObjectiveGoals in addingObjectiveGoalsViewController is failed")
+            }
+            GoalTextField.text = ObjectiveGoalsCollection![objectiveGoalIndex].title
+            ContentTextView.text = ObjectiveGoalsCollection![objectiveGoalIndex].content
         }
         // Do any additional setup after loading the view.
     }
@@ -34,6 +41,14 @@ class addingObjectiveGoalsViewController: UIViewController,UITextFieldDelegate, 
     
     
     @IBAction func makeObjectiveGoal(_ sender: UIButton) {
+        if isByPlus{
+            makeNewGoal()
+        } else {
+            modifyTheGoal()
+        }
+    }
+    
+    func makeNewGoal(){
         let newObjectiveGoal = ObjectiveGoals(context: context)
         newObjectiveGoal.clear = false
         newObjectiveGoal.content = ContentTextView.text!
@@ -49,7 +64,21 @@ class addingObjectiveGoalsViewController: UIViewController,UITextFieldDelegate, 
         dismiss(animated: true)
     }
     
-    
+    func modifyTheGoal(){
+          let ObjectiveGoal = ObjectiveGoalsCollection![objectiveGoalIndex]
+          ObjectiveGoal.title = GoalTextField.text!
+          ObjectiveGoal.content = ContentTextView.text!
+          
+          do{
+              try self.context.save()
+              print("ObjectiveGoal is modified")
+          }catch {
+              fatalError("making Goal Error Occur")
+          }
+          
+          delegate?.dismissisCalled()
+          dismiss(animated: true)
+      }
     /*
     // MARK: - Navigation
 
