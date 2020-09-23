@@ -8,7 +8,7 @@
 
 import UIKit
 
-class addingGoalsViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate {
+class addingGoalsViewController: UIViewController, UITextFieldDelegate, UITextViewDelegate{
 
     var delegate : dismissCall?
     

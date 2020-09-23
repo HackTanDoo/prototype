@@ -51,7 +51,6 @@ class BucketListViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchBucketList()
-        333
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

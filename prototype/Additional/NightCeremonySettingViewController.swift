@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NightCeremonySettingViewController: UIViewController {
+class NightCeremonySettingViewController: UIViewController, UITextFieldDelegate,UITextViewDelegate {
 
     @IBOutlet var textFields: [UITextField]!
     @IBOutlet weak var textView: UITextView!
@@ -18,6 +18,10 @@ class NightCeremonySettingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for nightQuestion in textFields {
+            nightQuestion.delegate = self
+        }
+        textView.delegate = self
         nightQuestions = UserDefaults.standard.value(forKey: "nightQuestions") as! [String]
         nightPrayerText = UserDefaults.standard.value(forKey: "prayerForNight") as! String
         for (i,textField) in textFields.enumerated() {
@@ -35,5 +39,19 @@ class NightCeremonySettingViewController: UIViewController {
         UserDefaults.standard.set(nightPrayerText, forKey: "prayerForNight")
         dismiss(animated: true)
     }
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+          self.view.endEditing(true)
+
+    }
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
 }

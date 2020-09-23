@@ -118,7 +118,7 @@ class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIP
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("ViewDidLoad Called")
+        print("ViewDidAppear Called")
         let hour = Calendar.current.component(.hour, from: Date())
         
         if !Today.morningCeremony || (!Today.nightCeremony && hour > 21) {

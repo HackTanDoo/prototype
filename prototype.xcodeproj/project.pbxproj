@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		38153BE824FED85000908A5D /* CeremonyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38153BE724FED85000908A5D /* CeremonyViewController.swift */; };
+		383FDF3025175FA7008960FC /* SHSFViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383FDF2F25175FA7008960FC /* SHSFViewController.swift */; };
+		383FDF322517A0BB008960FC /* AddingQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383FDF312517A0BB008960FC /* AddingQuotes.swift */; };
 		385022792500B19A00A379E8 /* CeremonyPrayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 385022782500B19A00A379E8 /* CeremonyPrayerViewController.swift */; };
+		388B1C732517324100A290B0 /* Quote+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B1C712517324100A290B0 /* Quote+CoreDataClass.swift */; };
+		388B1C742517324100A290B0 /* Quote+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388B1C722517324100A290B0 /* Quote+CoreDataProperties.swift */; };
 		388FC42224FEC0AF00DFBFCE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC42124FEC0AF00DFBFCE /* AppDelegate.swift */; };
 		388FC42424FEC0AF00DFBFCE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC42324FEC0AF00DFBFCE /* SceneDelegate.swift */; };
 		388FC42924FEC0AF00DFBFCE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 388FC42724FEC0AF00DFBFCE /* Main.storyboard */; };
 		388FC42B24FEC0B000DFBFCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 388FC42A24FEC0B000DFBFCE /* Assets.xcassets */; };
 		388FC42E24FEC0B000DFBFCE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 388FC42C24FEC0B000DFBFCE /* LaunchScreen.storyboard */; };
 		388FC43C24FECD6900DFBFCE /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC43B24FECD6900DFBFCE /* TodayViewController.swift */; };
-		388FC44024FECDA200DFBFCE /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC43F24FECDA200DFBFCE /* HistoryViewController.swift */; };
 		388FC44224FECDAD00DFBFCE /* AdditionalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC44124FECDAD00DFBFCE /* AdditionalViewController.swift */; };
 		388FC44424FECE7800DFBFCE /* Today.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC44324FECE7800DFBFCE /* Today.swift */; };
-		388FC44824FECE9500DFBFCE /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC44724FECE9500DFBFCE /* History.swift */; };
 		388FC44A24FECEA800DFBFCE /* Additional.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388FC44924FECEA800DFBFCE /* Additional.swift */; };
 		38AB7A962514D62A00A480CE /* NightCeremonySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AB7A952514D62A00A480CE /* NightCeremonySettingViewController.swift */; };
 		38AB7A982514D63B00A480CE /* MorningCeremonySettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AB7A972514D63B00A480CE /* MorningCeremonySettingViewController.swift */; };
@@ -44,7 +46,11 @@
 
 /* Begin PBXFileReference section */
 		38153BE724FED85000908A5D /* CeremonyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeremonyViewController.swift; sourceTree = "<group>"; };
+		383FDF2F25175FA7008960FC /* SHSFViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SHSFViewController.swift; sourceTree = "<group>"; };
+		383FDF312517A0BB008960FC /* AddingQuotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddingQuotes.swift; sourceTree = "<group>"; };
 		385022782500B19A00A379E8 /* CeremonyPrayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CeremonyPrayerViewController.swift; sourceTree = "<group>"; };
+		388B1C712517324100A290B0 /* Quote+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quote+CoreDataClass.swift"; sourceTree = "<group>"; };
+		388B1C722517324100A290B0 /* Quote+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Quote+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		388FC41E24FEC0AF00DFBFCE /* MJ23.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MJ23.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		388FC42124FEC0AF00DFBFCE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		388FC42324FEC0AF00DFBFCE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -53,10 +59,8 @@
 		388FC42D24FEC0B000DFBFCE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		388FC42F24FEC0B000DFBFCE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		388FC43B24FECD6900DFBFCE /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		388FC43F24FECDA200DFBFCE /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		388FC44124FECDAD00DFBFCE /* AdditionalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalViewController.swift; sourceTree = "<group>"; };
 		388FC44324FECE7800DFBFCE /* Today.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Today.swift; sourceTree = "<group>"; };
-		388FC44724FECE9500DFBFCE /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		388FC44924FECEA800DFBFCE /* Additional.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Additional.swift; sourceTree = "<group>"; };
 		38AB7A952514D62A00A480CE /* NightCeremonySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NightCeremonySettingViewController.swift; sourceTree = "<group>"; };
 		38AB7A972514D63B00A480CE /* MorningCeremonySettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorningCeremonySettingViewController.swift; sourceTree = "<group>"; };
@@ -126,7 +130,7 @@
 				38CF94BB2508545D00DBA117 /* GoalsModel */,
 				385022772500B0EE00A379E8 /* Today */,
 				38CF94A525037DCB00DBA117 /* Goals */,
-				38CF94A625037DD300DBA117 /* History */,
+				38CF94A625037DD300DBA117 /* SHSF */,
 				38CF94A725037DDD00DBA117 /* Additional */,
 				388FC42724FEC0AF00DFBFCE /* Main.storyboard */,
 				388FC42F24FEC0B000DFBFCE /* Info.plist */,
@@ -150,21 +154,21 @@
 			path = Goals;
 			sourceTree = "<group>";
 		};
-		38CF94A625037DD300DBA117 /* History */ = {
+		38CF94A625037DD300DBA117 /* SHSF */ = {
 			isa = PBXGroup;
 			children = (
-				388FC43F24FECDA200DFBFCE /* HistoryViewController.swift */,
-				388FC44724FECE9500DFBFCE /* History.swift */,
+				383FDF312517A0BB008960FC /* AddingQuotes.swift */,
+				383FDF2F25175FA7008960FC /* SHSFViewController.swift */,
 			);
-			path = History;
+			path = SHSF;
 			sourceTree = "<group>";
 		};
 		38CF94A725037DDD00DBA117 /* Additional */ = {
 			isa = PBXGroup;
 			children = (
 				38CF94F9250A1C4000DBA117 /* BucketList+CoreDataClass.swift */,
-				38AB7A992514E58700A480CE /* AddingQuoteViewController.swift */,
 				38CF94FA250A1C4000DBA117 /* BucketList+CoreDataProperties.swift */,
+				38AB7A992514E58700A480CE /* AddingQuoteViewController.swift */,
 				388FC44124FECDAD00DFBFCE /* AdditionalViewController.swift */,
 				388FC44924FECEA800DFBFCE /* Additional.swift */,
 				38CF94AA2507C1B300DBA117 /* BucketListViewController.swift */,
@@ -177,6 +181,8 @@
 		38CF94BB2508545D00DBA117 /* GoalsModel */ = {
 			isa = PBXGroup;
 			children = (
+				388B1C712517324100A290B0 /* Quote+CoreDataClass.swift */,
+				388B1C722517324100A290B0 /* Quote+CoreDataProperties.swift */,
 				38CF94DF2509C55000DBA117 /* AbstractGoals+CoreDataClass.swift */,
 				38CF94E02509C55000DBA117 /* AbstractGoals+CoreDataProperties.swift */,
 				38CF94E12509C55000DBA117 /* ObjectiveGoals+CoreDataClass.swift */,
@@ -268,7 +274,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				388FC44824FECE9500DFBFCE /* History.swift in Sources */,
 				38AB7A982514D63B00A480CE /* MorningCeremonySettingViewController.swift in Sources */,
 				38AB7A9A2514E58700A480CE /* AddingQuoteViewController.swift in Sources */,
 				38CF94F62509C8EA00DBA117 /* AbstractGoalsTableTableViewController.swift in Sources */,
@@ -278,6 +283,7 @@
 				38CF94E82509C55000DBA117 /* ObjectiveGoals+CoreDataProperties.swift in Sources */,
 				385022792500B19A00A379E8 /* CeremonyPrayerViewController.swift in Sources */,
 				38CF94AE2508525900DBA117 /* Model.xcdatamodeld in Sources */,
+				388B1C742517324100A290B0 /* Quote+CoreDataProperties.swift in Sources */,
 				388FC42424FEC0AF00DFBFCE /* SceneDelegate.swift in Sources */,
 				38CF94EA2509C55000DBA117 /* Goals+CoreDataProperties.swift in Sources */,
 				38CF94E52509C55000DBA117 /* AbstractGoals+CoreDataClass.swift in Sources */,
@@ -287,16 +293,18 @@
 				38CF94E72509C55000DBA117 /* ObjectiveGoals+CoreDataClass.swift in Sources */,
 				38CF94F02509C82D00DBA117 /* addingGoalsViewController.swift in Sources */,
 				38CF94E92509C55000DBA117 /* Goals+CoreDataClass.swift in Sources */,
+				383FDF3025175FA7008960FC /* SHSFViewController.swift in Sources */,
 				388FC44A24FECEA800DFBFCE /* Additional.swift in Sources */,
 				388FC44224FECDAD00DFBFCE /* AdditionalViewController.swift in Sources */,
 				38CF94F82509C8FC00DBA117 /* ObjectiveGoalsTableViewController.swift in Sources */,
 				38CF94FB250A1C4000DBA117 /* BucketList+CoreDataClass.swift in Sources */,
-				388FC44024FECDA200DFBFCE /* HistoryViewController.swift in Sources */,
 				388FC44424FECE7800DFBFCE /* Today.swift in Sources */,
 				388FC43C24FECD6900DFBFCE /* TodayViewController.swift in Sources */,
+				388B1C732517324100A290B0 /* Quote+CoreDataClass.swift in Sources */,
 				38CF94A92507973B00DBA117 /* GoalsTableViewController.swift in Sources */,
 				38153BE824FED85000908A5D /* CeremonyViewController.swift in Sources */,
 				38AB7A962514D62A00A480CE /* NightCeremonySettingViewController.swift in Sources */,
+				383FDF322517A0BB008960FC /* AddingQuotes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

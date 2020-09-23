@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="AbstractGoals" representedClassName="AbstractGoals" syncable="YES">
         <attribute name="clear" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="content" optional="YES" attributeType="String"/>
@@ -24,10 +24,15 @@
         <relationship name="goals" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Goals" inverseName="aims" inverseEntity="Goals"/>
         <relationship name="tags" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="AbstractGoals" inverseName="objectives" inverseEntity="AbstractGoals"/>
     </entity>
+    <entity name="Quote" representedClassName="Quote" syncable="YES">
+        <attribute name="artist" optional="YES" attributeType="String"/>
+        <attribute name="content" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="AbstractGoals" positionX="-422.12109375" positionY="-194.63671875" width="128" height="103"/>
         <element name="BucketList" positionX="100.484375" positionY="-180.18359375" width="128" height="73"/>
         <element name="Goals" positionX="-261.77734375" positionY="-131.4296875" width="128" height="118"/>
         <element name="ObjectiveGoals" positionX="-23.390625" positionY="-365.12890625" width="128" height="118"/>
+        <element name="Quote" positionX="-207" positionY="-207" width="128" height="73"/>
     </elements>
 </model>

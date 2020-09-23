@@ -74,7 +74,7 @@ class addingAbstractGoalsViewController: UIViewController, UITextViewDelegate,UI
     }
     
     func modifyTheGoal(){
-        let AbstractGoal = AbstractGoalsCollection![goalIndex]
+        let AbstractGoal = AbstractGoalsCollection![abstractGoalIndex]
         AbstractGoal.title = TitleTextField.text!
         AbstractGoal.content = ContentTextView.text!
         

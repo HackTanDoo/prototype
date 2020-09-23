@@ -8,13 +8,17 @@
 
 import UIKit
 
-class MorningCeremonySettingViewController: UIViewController {
+class MorningCeremonySettingViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
     var morningQuestionsTexts : [String] = []
     var morningPrayerText : String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        for morningQuestion in morningQuestions{
+            morningQuestion.delegate = self
+        }
+        morningPrayer.delegate = self
         morningQuestionsTexts = UserDefaults.standard.value(forKey: "morningQuestions") as! [String]
         morningPrayerText = UserDefaults.standard.value(forKey: "prayerForMorning") as! String
         for(i, morningQuestion) in morningQuestions.enumerated() {
@@ -47,4 +51,18 @@ class MorningCeremonySettingViewController: UIViewController {
     }
     */
 
+    func textFieldShouldReturn(_ scoreText: UITextField) -> Bool {
+        self.view.endEditing(true)
+        return true
+    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+          self.view.endEditing(true)
+    }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
 }
