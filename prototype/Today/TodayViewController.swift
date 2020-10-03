@@ -9,14 +9,20 @@
 import UIKit
 import CoreData
 
+var Today = today()
+var morningLabel = true {
+    didSet{
+        UserDefaults.standard.set(morningLabel, forKey: "morningLabel")
+    }
+}
 
 class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate, dismissCall{
     func dismissisCalled() {
         print("delegate is called")
-        todayPromiseText = Today.morningAnswers[3]
+        todayPromiseText = morningLabel ? Today.morningAnswers[3] : Today.nightAnswers[3]
     }
     
-
+    
     @IBOutlet weak var todayPromise: UILabel!
     var todayPromiseText = "" {
         didSet{
@@ -31,41 +37,12 @@ class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIP
     override func viewDidLoad() {
         super.viewDidLoad()
         setState()
-        resetCeremonyStatesByDay()
-        todayPromiseText = Today.morningAnswers[3]
-        
-        
-        let morningCeremony = (UserDefaults.standard.value(forKey: "morningCeremony") ?? false) as! Bool
-        let nightCeremony = (UserDefaults.standard.value(forKey: "nightCermeony") ?? false) as! Bool
-        let hour = Calendar.current.component(.hour, from: Date())
-        
-        if !morningCeremony || (!nightCeremony && hour > 21) {//ceremony가 일어나야 하면
-            !morningCeremony ? UserDefaults.standard.set(true, forKey: "morningCeremony") : UserDefaults.standard.set(true, forKey: "nightCermony")
-            let count = !morningCeremony ? self.Today.morningQuestions.count : self.Today.nightQuestions.count
-            for index in 0..<count {
-                let Question = !morningCeremony ? self.Today.morningQuestions[index]: self.Today.nightQuestions[index]
-                let Answer = !morningCeremony ? self.Today.morningAnswers[index]: self.Today.nightAnswers[index]
-                guard let QuestionController = storyboard?.instantiateViewController(identifier: "CeremonyQuestionViewController", creator: {coder in
-                    CeremonyQuestionViewController(coder: coder, morning : !morningCeremony, number: index+1 , question: Question, answer : Answer)
-                }) else {
-                    fatalError("Unable to create QeustionController")
-                }
-                CeremonyControllers.append(QuestionController)
-                print("For Loop is called \(index) : \(Question) : \(Answer)")
-            }
-            let prayer = !morningCeremony ? self.Today.prayerForMorning : self.Today.prayerForNight
-            guard let prayerController = storyboard?.instantiateViewController(identifier: "CeremonyPrayerViewController", creator: { coder in
-                CeremonyPrayerViewController(coder : coder, prayer: prayer)
-            }) else{
-                fatalError("Unable to create PrayerController")
-            }
-            CeremonyControllers.append(prayerController)
-            CeremonyQuestionViewController.Today = Today
-        }
+        todayPromiseText = morningLabel ? Today.morningAnswers[3] : Today.nightAnswers[3]
     }
 
     @IBAction func performMoningCeremony(_ sender: UIButton) {
         CeremonyControllers = [UIViewController]()
+        morningLabel=true
         let count = self.Today.morningQuestions.count
         for index in 0..<count {
             let Question = self.Today.morningQuestions[index]
@@ -92,6 +69,7 @@ class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIP
     
     @IBAction func performNightCeremony(_ sender: UIButton) {
         CeremonyControllers = [UIViewController]()
+        morningLabel=false
         let count = self.Today.nightQuestions.count
         for index in 0..<count {
             let Question = self.Today.nightQuestions[index]
@@ -101,6 +79,7 @@ class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIP
             }) else {
                 fatalError("Unable to create QeustionController")
             }
+            QuestionController.delegate = self
             CeremonyControllers.append(QuestionController)
             print("For Loop is called \(index) : \(Question) : \(Answer)")
         }
@@ -119,15 +98,6 @@ class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIP
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         print("ViewDidAppear Called")
-        let hour = Calendar.current.component(.hour, from: Date())
-        
-        if !Today.morningCeremony || (!Today.nightCeremony && hour > 21) {
-            DispatchQueue.main.asyncAfter(deadline: .now()+2, execute: {
-                self.presentPageVC()
-                print("presentPageVC is called")
-            })
-        }
-        
     }
     
     func presentPageVC(){
@@ -138,7 +108,6 @@ class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIP
                                       options: nil)
         vc.delegate = self
         vc.dataSource = self
-        
         vc.setViewControllers([first],
                               direction: .forward,
                               animated: true,
@@ -153,35 +122,31 @@ class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIP
             return nil
         }
         let before = index - 1
-//        let target = morningCeremonyControllers[index] as! morningCeremonyQuestionViewController
-//        let text = target.morningCeremonyAnswer.text
-//        Today.morningAnswers[index] = text!
         return CeremonyControllers[before]
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, viewControllerAfter viewController: UIViewController) -> UIViewController? {
         guard let index = CeremonyControllers.firstIndex(of: viewController), index < CeremonyControllers.count - 1 else {return nil}
         let after = index + 1
-//        let target = morningCeremonyControllers[index] as! morningCeremonyQuestionViewController
-//        let text = target.morningCeremonyAnswer.text
-//        Today.morningAnswers[index] = text!
         return CeremonyControllers[after]
     }
+
     
-    func resetCeremonyStatesByDay(){
-        let hour = Calendar.current.component(.hour, from: Date())
-        let day = Calendar.current.component(.day, from: Date())
-        var needToReset = false
-        if let recentDay = UserDefaults.standard.value(forKey: "recentDay") as? Int, recentDay != day && hour > 5 {
-            needToReset = true
-        }
-        UserDefaults.standard.set(day, forKey: "recentDay")
-        
-        if needToReset {
-            UserDefaults.standard.set(false, forKey: "morningCeremony")
-            UserDefaults.standard.set(false, forKey: "nightCermeony")
-        }
-    }
+//    func resetCeremonyStatesByDay(){
+//        let hour = Calendar.current.component(.hour, from: Date())
+//        let day = Calendar.current.component(.day, from: Date())
+//        var needToReset = false
+//        if let recentDay = UserDefaults.standard.value(forKey: "recentDay") as? Int, recentDay != day && hour > 5 {
+//            needToReset = true
+//        }
+//        UserDefaults.standard.set(day, forKey: "recentDay")
+//
+//        if needToReset {
+//            UserDefaults.standard.set(false, forKey: "morningCeremony")
+//            UserDefaults.standard.set(false, forKey: "nightCermeony")
+//        }
+//    }
+
     
     func setState(){
         if let morningAnswers = UserDefaults.standard.value(forKey: "morningAnswers"),
@@ -191,7 +156,8 @@ class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIP
             let nightQuestions = UserDefaults.standard.value(forKey: "nightQuestions"),
             let prayerForNight = UserDefaults.standard.value(forKey : "prayerForNight"),
             let morningCeremony = UserDefaults.standard.value(forKey: "morningCeremony"),
-            let nightCeremony = UserDefaults.standard.value(forKey: "nightCeremony")
+            let nightCeremony = UserDefaults.standard.value(forKey: "nightCeremony"),
+            let tempmorningLabel = UserDefaults.standard.value(forKey : "morningLabel")
         {
             print("if is called")
             Today.morningAnswers = morningAnswers as! [String]
@@ -202,7 +168,7 @@ class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIP
             Today.prayerForNight = prayerForNight as! String
             Today.morningCeremony = morningCeremony as! Bool
             Today.nightCeremony = nightCeremony as! Bool
-            
+            morningLabel = tempmorningLabel as! Bool
             //calendar = beforeDate as! Calendar
         } else {
             print("else is called")
@@ -214,6 +180,7 @@ class TodayViewController: UIViewController, UIPageViewControllerDataSource, UIP
             UserDefaults.standard.set(Today.nightCeremony, forKey: "nightCeremony")
             UserDefaults.standard.set(Today.nightAnswers, forKey: "nightAnswers")
             UserDefaults.standard.set(Today.prayerForNight, forKey: "prayerForNight")
+            UserDefaults.standard.set(morningLabel, forKey: "morningLabel")
             //UserDefaults.standard.set(calendar, forKey: "Calendar")
         }
     }

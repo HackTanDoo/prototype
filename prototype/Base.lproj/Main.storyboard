@@ -206,8 +206,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oq-Oe-wOo">
-                                <rect key="frame" x="55" y="94" width="265" height="535"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2oq-Oe-wOo">
+                                <rect key="frame" x="30" y="94" width="315" height="535"/>
                                 <attributedString key="attributedText">
                                     <fragment content="명언 들어간다">
                                         <attributes>
@@ -223,14 +223,14 @@
                         <viewLayoutGuide key="safeArea" id="aJZ-NL-zhK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="aJZ-NL-zhK" firstAttribute="trailing" secondItem="2oq-Oe-wOo" secondAttribute="trailing" constant="55" id="0Op-vN-DUY"/>
                             <constraint firstItem="tVc-eY-W9N" firstAttribute="top" secondItem="2oq-Oe-wOo" secondAttribute="bottom" constant="41" id="3KZ-Bn-Bn9"/>
                             <constraint firstItem="aJZ-NL-zhK" firstAttribute="bottom" secondItem="2oq-Oe-wOo" secondAttribute="bottom" constant="100" id="Btb-i4-kHh"/>
                             <constraint firstItem="tVc-eY-W9N" firstAttribute="leading" secondItem="aJZ-NL-zhK" secondAttribute="leading" constant="82" id="GHf-eY-fyA"/>
-                            <constraint firstItem="2oq-Oe-wOo" firstAttribute="leading" secondItem="aJZ-NL-zhK" secondAttribute="leading" constant="55" id="O0F-V0-pTW"/>
                             <constraint firstItem="aJZ-NL-zhK" firstAttribute="trailing" secondItem="tVc-eY-W9N" secondAttribute="trailing" constant="82" id="RHU-OW-6fj"/>
+                            <constraint firstItem="2oq-Oe-wOo" firstAttribute="leading" secondItem="aJZ-NL-zhK" secondAttribute="leading" constant="30" id="drC-hJ-KQj"/>
                             <constraint firstItem="aJZ-NL-zhK" firstAttribute="bottom" secondItem="tVc-eY-W9N" secondAttribute="bottom" constant="38" id="hGN-u6-rfq"/>
                             <constraint firstItem="2oq-Oe-wOo" firstAttribute="top" secondItem="aJZ-NL-zhK" secondAttribute="top" constant="50" id="i4V-Wo-cun"/>
+                            <constraint firstItem="aJZ-NL-zhK" firstAttribute="trailing" secondItem="2oq-Oe-wOo" secondAttribute="trailing" constant="30" id="yEM-Dv-8iz"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="SHSF" image="flame.fill" catalog="system" selectedImage="flame.fill" id="FRC-7d-nj2"/>
