@@ -33,6 +33,7 @@ class AddingQuoteViewController: UIViewController, UITextFieldDelegate, UITextVi
         } catch{
             fatalError("Adding Quotes Failed")
         }
+        dismiss(animated: true)
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
           self.view.endEditing(true)
